@@ -1,0 +1,23 @@
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# Testing
+coverage/
+
+# Production
+.vercel
+.env*.local
+
+# OS
+.DS_Store
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
