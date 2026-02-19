@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import HeroShutterImage from '@/components/ui/hero-shutter-image'
+import { config } from '@/cloner.config'
 
 interface HeroProps {
     businessName: string
@@ -16,82 +17,25 @@ interface HeroProps {
 }
 
 export default function Hero({ tagline }: HeroProps) {
-    // Single hero background — van photo with Ken Burns animation
-
-    const projects = [
-        {
-            title: 'BLACK TRIM SHOWER',
-            subtitle: 'PRECISION FIT OUT',
-            description: 'Crisp marble effect tiling with recessed shelf and matte black brassware.',
-            image: '/project-images/486889829_1500030858006688_2711677658954263752_n.jpg'
-        },
-        {
-            title: 'MODERN ENSUITE',
-            subtitle: 'COMPLETE REFIT',
-            description: 'Walk-in glass shower, vanity unit and towel rail installed as one clean package.',
-            image: '/project-images/487241235_1500030824673358_826396324732640599_n.jpg'
-        },
-        {
-            title: 'FULL SUITE BUILD',
-            subtitle: 'BATH + WALK IN',
-            description: 'Large format stone tiles with freestanding bath and bespoke shower zone.',
-            image: '/project-images/487298241_1500030844673356_3364429620033682151_n.jpg'
-        },
-        {
-            title: 'COMPACT SHOWER ROOM',
-            subtitle: 'SPACE SMART LAYOUT',
-            description: 'Floating basin, glazed divider and black fixtures maximised for daily use.',
-            image: '/project-images/489929278_1512043933472047_4732552171357439409_n.jpg'
-        },
-        {
-            title: 'CONTEMPORARY WET ZONE',
-            subtitle: 'SLIMLINE FINISH',
-            description: 'Muted tile palette with framed shower screen and coordinated radiator detailing.',
-            image: '/project-images/474648742_17934343817976774_4396125200450807822_n.jpg'
-        },
-        {
-            title: 'DESIGN LED CLOAKROOM',
-            subtitle: 'PREMIUM DETAILING',
-            description: 'Feature mirror lighting with modern sanitaryware in a compact footprint.',
-            image: '/project-images/504109146_1558894055453701_4154799668694456749_n.jpg'
-        },
-        {
-            title: 'FAMILY BATHROOM UPGRADE',
-            subtitle: 'EVERYDAY PRACTICAL',
-            description: 'Strong tile finish and open floor area built for reliable long-term performance.',
-            image: '/project-images/506417751_1563963218280118_482297892201879522_n.jpg'
-        },
-        {
-            title: 'FEATURE BATH INSTALL',
-            subtitle: 'STATEMENT FINISH',
-            description: 'Freestanding bath and panelled walls paired with black-framed shower screening.',
-            image: '/project-images/581799699_1704372400905865_6985385323332815511_n.jpg'
-        },
-        {
-            title: 'TRADITIONAL ROOM REFRESH',
-            subtitle: 'MODERNISED SYSTEMS',
-            description: 'Heritage-style room upgraded with fresh surfaces and practical shower provision.',
-            image: '/project-images/574282056_1689013079108464_6843722183469312655_n.jpg'
-        },
-        {
-            title: 'UTILITY BATHROOM FIT',
-            subtitle: 'BUILT FOR DAILY USE',
-            description: 'Simple durable installation with clean lines and straightforward maintenance.',
-            image: '/project-images/577003389_1696451665031272_8045769850850060885_n.jpg'
-        },
-        {
-            title: 'SOFT STONE ENSUITE',
-            subtitle: 'NEAT FINISHING',
-            description: 'Integrated vanity and bath edge work finished with matching neutral tiles.',
-            image: '/project-images/612005417_1747213583288413_7286806574863668508_n.jpg'
-        },
-        {
-            title: 'CLOAKROOM REVAMP',
-            subtitle: 'COMPACT PREMIUM LOOK',
-            description: 'Stone wall texture, vessel sink and brass detailing tailored for small spaces.',
-            image: '/project-images/612597497_1747213623288409_2050588822871596554_n.jpg'
-        },
+    // Project carousel — driven by config.images.projects
+    // Add/remove photos in cloner.config.ts → updates here automatically
+    const projectLabels = [
+        { title: 'PROJECT 1', subtitle: 'PLACE TITLE HERE' },
+        { title: 'PROJECT 2', subtitle: 'PLACE TITLE HERE' },
+        { title: 'PROJECT 3', subtitle: 'PLACE TITLE HERE' },
+        { title: 'PROJECT 4', subtitle: 'PLACE TITLE HERE' },
+        { title: 'PROJECT 5', subtitle: 'PLACE TITLE HERE' },
+        { title: 'PROJECT 6', subtitle: 'PLACE TITLE HERE' },
+        { title: 'PROJECT 7', subtitle: 'PLACE TITLE HERE' },
+        { title: 'PROJECT 8', subtitle: 'PLACE TITLE HERE' },
     ]
+
+    const projects = config.images.projects.map((image, i) => ({
+        title: projectLabels[i]?.title ?? `PROJECT ${i + 1}`,
+        subtitle: projectLabels[i]?.subtitle ?? 'PLACE TITLE HERE',
+        description: 'Project description — pulled from Facebook or client site.',
+        image,
+    }))
 
     const allProjects = [...projects, ...projects]
 

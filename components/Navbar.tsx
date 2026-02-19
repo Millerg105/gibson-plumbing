@@ -3,6 +3,7 @@ import { Phone, X, Menu } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { config } from '@/cloner.config';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function Navbar() {
         { name: 'Our Services', href: '/services', isPage: true },
         { name: 'Featured Projects', href: '/featured-projects', isPage: true },
         { name: 'Reviews', href: '#testimonials' },
-        { name: 'Boiler Health Check', href: '#boiler-health-check' },
+        { name: config.freeOffer.title, href: '#free-offer' },
     ];
 
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
@@ -39,12 +40,12 @@ export default function Navbar() {
 
             <nav className="fixed top-0 left-0 right-0 z-[9998] pointer-events-none text-white">
 
-                {/* Top-left: Coloured Gibson logo */}
+                {/* Top-left: Client logo */}
                 <div className="absolute top-4 left-5 pointer-events-auto z-[9999]">
                     <Link href="/">
                         <Image
-                            src="/gibson-logo.png"
-                            alt="Gibson"
+                            src={config.images.logo}
+                            alt={config.shortName}
                             width={64}
                             height={64}
                             className="object-contain cursor-pointer"
@@ -56,11 +57,11 @@ export default function Navbar() {
                 {/* Center: Phone Number (desktop only) */}
                 <div className="absolute left-1/2 top-5 -translate-x-1/2 z-[9999] hidden md:block pointer-events-auto">
                     <a
-                        href="tel:01942873026"
+                        href={`tel:${config.phoneDial}`}
                         className="flex items-center gap-2.5 px-5 py-2 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white hover:bg-black/35 hover:border-white/40 transition-all duration-300 text-sm font-medium tracking-[0.12em] uppercase font-altform cursor-pointer"
                     >
                         <Phone className="w-3.5 h-3.5 opacity-70" />
-                        <span>01942 873 026</span>
+                        <span>{config.phone}</span>
                     </a>
                 </div>
             </nav>
@@ -125,9 +126,9 @@ export default function Navbar() {
 
                     {/* Phone Number */}
                     <div className="mt-8 rounded-full border border-white/15 bg-white/5 px-4 py-2">
-                        <a href="tel:01942873026" className="flex items-center gap-3 text-white/75 hover:text-white transition-colors text-sm font-altform tracking-[0.16em] uppercase">
+                        <a href={`tel:${config.phoneDial}`} className="flex items-center gap-3 text-white/75 hover:text-white transition-colors text-sm font-altform tracking-[0.16em] uppercase">
                             <Phone className="w-4 h-4" />
-                            <span>01942 873 026</span>
+                            <span>{config.phone}</span>
                         </a>
                     </div>
                 </div>

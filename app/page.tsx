@@ -8,20 +8,26 @@ import BoilerQuiz from '@/components/BoilerQuiz';
 import LocationsSection from '@/components/LocationsSection';
 import ChatWidget from '@/components/ChatWidget';
 import { Footer } from '@/components/ui/footer-demo';
+import { config } from '@/cloner.config';
+
+export const metadata = {
+    title: `${config.businessName} | ${config.tagline}`,
+    description: config.metaDescription,
+};
 
 export default function Home() {
     return (
         <main className="bg-white text-[#0F2040] min-h-screen selection:bg-[#2C3E6B] selection:text-white">
             <Navbar />
 
-            {/* Page 1: Hero (Gibson) */}
+            {/* Page 1: Hero */}
             <section id="hero">
                 <Hero
-                    businessName="Gibson Plumbing"
-                    tagline="Gibson Plumbing & Heating delivers precision engineering that transforms homes across Wigan and beyond."
-                    services={["Emergency Repairs", "Boiler Installs", "Luxury Bathrooms", "Heating Controls", "Commercial", "Power Flushing"]}
+                    businessName={config.businessName}
+                    tagline={config.tagline}
+                    services={config.services.map(s => s.title)}
                     media={{
-                        backgroundImage: "/gibson-hero-bg.png"
+                        backgroundImage: config.images.heroBg
                     }}
                 />
             </section>
@@ -34,27 +40,27 @@ export default function Home() {
                 <About />
             </section>
 
-            {/* Page 3: Boiler Health Check */}
-            <section id="boiler-health-check">
+            {/* Page 3: Free Value Offer (e.g. Boiler Health Check) */}
+            <section id="free-offer">
                 <BoilerQuiz />
             </section>
 
-            {/* Page 3.5: Booking (Middle) */}
+            {/* Page 3.5: Booking */}
             <section id="booking">
                 <OnlineBooking />
             </section>
 
-            {/* Page 3: Reviews */}
+            {/* Page 4: Reviews */}
             <section id="testimonials">
                 <Testimonials />
             </section>
 
-            {/* Page 3.2: Locations */}
+            {/* Page 4.5: Locations */}
             <section id="locations">
                 <LocationsSection />
             </section>
 
-            {/* Page 4: "The Photo" / Contact / Footer */}
+            {/* Page 5: Footer / Contact */}
             <section id="contact">
                 <Footer />
             </section>
