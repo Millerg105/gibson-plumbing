@@ -1,6 +1,6 @@
-# Gibson Plumbing & Website Cloner Ultimate
+# Gibson Plumbing
 
-This is a modern, responsive website built for trade businesses (Plumbers, HVAC, Electricians). It features a high-performance Next.js frontend, shadcn/ui components, and is optimized for SEO and conversion.
+This is a modern, responsive website built for trade businesses. It features a high-performance Next.js frontend, shadcn/ui components, and is optimized for SEO and conversion.
 
 ## 🚀 Getting Started
 
@@ -57,15 +57,6 @@ To build the application for production:
 npm run build
 npm start
 ```
-
-## 🔧 Templatization (Website Cloner Ultimate)
-
-This project is designed to be easily white-labeled. The core logic resides in `app/page.tsx`, `components/Hero.tsx`, and `components/ui`.
-
-**Key Configuration Files:**
-- `tailwind.config.ts`: Color palette and theme settings.
-- `app/layout.tsx`: Global font and metadata configuration.
-- `components/Navbar.tsx` & `Footer.tsx`: Navigation structure.
 
 ## 📝 License
 
